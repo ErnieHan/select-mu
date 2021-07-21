@@ -13,12 +13,15 @@
             <option value="P">P</option>
             <option value="E">E</option>
         </select>
+        <div id="content"></div>
     </div>
 </body>
 <script>
     const select = document.getElementById("select");
     select.addEventListener('change', function(e){
         console.log(e.target.value);
+        const content = document.getElementById("content");
+        content.innerHTML = e.target.value;
     });
 </script>
 </html>
