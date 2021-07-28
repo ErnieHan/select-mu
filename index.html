@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-</head>
-<body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="browser-wrap"></div>
     <div>
-        <select id="select" multiple>
-            <option value="all">All</option>
-            <option value="P">P</option>
-            <option value="E">E</option>
-        </select>
-        <div id="content"></div>
+      <select id="select" multiple>
+        <option value="all">All</option>
+        <option value="P">P</option>
+        <option value="E">E</option>
+      </select>
+      <div id="content"></div>
     </div>
-</body>
-<script>
-    const select = document.getElementById("select");
-    select.addEventListener('change', function(e){
-        const values = $(this).val()
-        const content = document.getElementById("content");
-        content.innerHTML = values;
-    });
-</script>
+  </body>
+  <script>
+    const select = document.getElementById('select')
+    select.addEventListener('change', function (e) {
+      const values = $(this).val()
+      const content = document.getElementById('content')
+      content.innerHTML = values
+    })
+    var w3Browser,
+      w3UserAgent = navigator.userAgent
+
+    if (w3UserAgent.indexOf('Firefox') > -1) {
+      w3Browser = 'Mozilla Firefox'
+    } else if (w3UserAgent.indexOf('SamsungBrowser') > -1) {
+      w3Browser = 'Samsung Internet'
+    } else if (
+      w3UserAgent.indexOf('Opera') > -1 ||
+      w3UserAgent.indexOf('OPR') > -1
+    ) {
+      w3Browser = 'Opera'
+    } else if (w3UserAgent.indexOf('Trident') > -1) {
+      w3Browser = 'Internet Explorer'
+    } else if (w3UserAgent.indexOf('Edge') > -1) {
+      w3Browser = 'Microsoft Edge'
+    } else if (w3UserAgent.indexOf('Chrome') > -1) {
+      w3Browser = 'Google Chrome or Chromium'
+    } else if (w3UserAgent.indexOf('Safari') > -1) {
+      w3Browser = 'Safari'
+    } else {
+      w3Browser = 'Unknown'
+    }
+    console.log('The browser is: ' + w3Browser)
+    $('#browser-wrap').html(w3Browser)
+  </script>
 </html>
