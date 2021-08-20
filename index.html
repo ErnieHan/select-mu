@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script type="text/javascript" src="./index.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
       integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
@@ -24,9 +25,28 @@
       })(window, document, 'script', 'dataLayer', 'GTM-M3CVGFG')
     </script>
     <!-- End Google Tag Manager -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        font-family: '微軟正黑體';
+        font-size: 13px;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        height: 2000px;
+        padding: 30px;
+      }
+    </style>
   </head>
   <body>
-    <div>container</div>
+    <div class="container">
+      <h1>pageY Offset: <span id="value">0</span></h1>
+    </div>
   </body>
   <!-- Google Tag Manager (noscript) -->
   <noscript
@@ -38,4 +58,11 @@
     ></iframe
   ></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  <script>
+    document.addEventListener('scroll', function () {
+      console.log(window.pageYOffset)
+      const value = document.getElementById('value')
+      value.innerText = window.pageYOffset
+    })
+  </script>
 </html>
